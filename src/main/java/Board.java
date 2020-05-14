@@ -127,7 +127,7 @@ public class Board {
 
 	public class EasyHandler implements EventHandler<ActionEvent>{
 
-		@Override
+		//@Override
 		public void handle(ActionEvent args) {
 			stage.setWidth(Chess.WIDTH+20);
 			stage.setHeight(Chess.LENGHT + 100);
@@ -139,7 +139,7 @@ public class Board {
 	
 	public class RandomHandler implements EventHandler<ActionEvent>{
 
-		@Override
+		//@Override
 		public void handle(ActionEvent args) {
 			stage.setWidth(Chess.WIDTH+20);
 			stage.setHeight(Chess.LENGHT + 100);
@@ -162,7 +162,7 @@ public class Board {
 		boolean isClicked = false;
 		int clickedPieceX, clickedPieceY;
 		
-		@Override
+		//@Override
 		public void handle(MouseEvent e) {	
 			int x = (int)(e.getX()/100);
 			int y = 7 - (int)(e.getY()/100);	
