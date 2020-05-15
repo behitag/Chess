@@ -14,6 +14,10 @@ import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
 import javafx.scene.Scene;
 
+/**
+ * simulates the Chess Board and chess settings via static methods/variables´
+ * @author Behrouz
+ */
 public class Board {
 	private boolean isCheckMate = false;
 	Main start = new Main();	
@@ -34,8 +38,12 @@ public class Board {
 	ArrayList<PieceMove> allPieceMovesB = new ArrayList<PieceMove>();
 	ArrayList<PieceMove> allPieceMovesW = new ArrayList<PieceMove>();
 	
+	/**
+	 * Constructor 
+	 * creates 64 Rectangles and put them in the root
+	 * sets the initial configs of the board, texts, colors, buttons etc
+	 */
 	public Board() {
-		//create 64 Rectangles and put them in the root
 		for(int i=0; i<8; i++)
 		for(int j=0; j<8; j++) {
 			rectangle[i][j] = new Rectangle(Chess.WIDTH/8, Chess.LENGHT/8);
@@ -123,6 +131,13 @@ public class Board {
 		btRandom.setOnAction(randomHandler);	
 	}
 	
+	/**
+	 * highlights blacks move with red rectangles around the 2 cells
+	 * @param x x-value of the new cell
+	 * @param y y-value of the new cell
+	 * @param defaultX x-value of the initial cell
+	 * @param defaultY y-value of the initial cell
+	 */
 	public static void addBlackBorderRectangles(int x, int y, int defaultX, int defaultY)
 	{
 		if(gridRoot.getChildren().contains(blackBorderRectangle1))
@@ -134,14 +149,26 @@ public class Board {
 		gridRoot.add(blackBorderRectangle2, defaultX, 7-defaultY);
 	}
 	
+	/**
+	 * for use of javafx
+	 * @return Scene
+	 */
 	public Scene getScene() {
 		return scene;
 	}	
 	
+	/**
+	 * for usage of javafx
+	 * @return Stage
+	 */
 	public Stage getStage() {
 		return stage;
 	}
 
+	/**
+	 * Handler of Level easy (thinks 2 moves deep)
+	 * @author Behrouz
+	 */
 	public class EasyHandler implements EventHandler<ActionEvent>{
 
 		//@Override
@@ -154,6 +181,10 @@ public class Board {
 		}	
 	}
 	
+	/**
+	 * Handler of Level random (random, but allowed moves)
+	 * @author Behrouz
+	 */
 	public class RandomHandler implements EventHandler<ActionEvent>{
 
 		//@Override
@@ -163,22 +194,42 @@ public class Board {
 			scene.setRoot(root);
 			stage.centerOnScreen();		
 			level = 1;
-		}
-		
+		}		
 	}
 	
+	/**
+	 * for javafx usage, where the cells are saved
+	 * @return Gridroot
+	 */
 	public GridPane getGridRoot() {
 		return gridRoot;
 	}
 	
+	/**
+	 * simulates the 8x8 chess board
+	 * returns rectangle of each cell
+	 * @param x x-coordinate of the cell
+	 * @param y y-coordinate of the cell
+	 * @return Rectangle
+	 */
 	public static Rectangle getRectangle(int x, int y) {
 		return rectangle[x][y];
 	}
 
+	/**
+	 * Handler of Mouse click
+	 * @author Behrouz
+	 *
+	 */
 	public class ClickHandler implements EventHandler<MouseEvent>{
 		boolean isClicked = false;
 		int clickedPieceX, clickedPieceY;
 		
+		/**
+		 * mouse click
+		 * checks for checkmate (does the click only not checkmated!)
+		 * dependent on where the 1st and 2nd clicks is done(white, black or empry cell), does different things
+		 */
 		//@Override
 		public void handle(MouseEvent e) {	
 			int x = (int)(e.getX()/100);
@@ -277,8 +328,9 @@ public class Board {
 		}		
 	}
 	
-	
-	//Set the board start position
+	/**
+	 * defines and sets the board start position of pieces
+	 */
 	public void startBoard() {			
 		
 		start.setWhiteKingXY(4, 0);	
@@ -384,15 +436,25 @@ public class Board {
 		setImageInCell(wp1, 0, 6);		
 	}
 	
+	/**
+	 * sets the image of the a piece in a cell, like after a move
+	 * @param piece the piece
+	 * @param x the x-coordinate of the cell
+	 * @param y y-coordinate of the cell
+	 */
 	public void setImageInCell(Piece piece, int x, int y){
 		if((x+7-y)%2==0)
 			rectangle[x][7-y].setFill(start.getPiece(x, y).getImage());
 		else
 			rectangle[x][7-y].setFill(start.getPiece(x, y).getImageGray());
 	}
-		
-	public void gatherAllMoves(int color) {
-		
+	
+	/**
+	 * gathers all possible moves for both colors 
+	 * is used in the 2nd level
+	 * @param color the game party
+	 */
+	public void gatherAllMoves(int color) {		
 		if(color == Chess.BLACK)
 			allPieceMovesB.clear();
 		else if(color == Chess.WHITE)
@@ -417,8 +479,11 @@ public class Board {
 		}
 	}
 	
-	public void makeARandomMove() {
-		
+	/**
+	 * does a random (but ofcourse allowed) move for the black
+	 * gathers all possible moves, and choses one randomly
+	 */
+	public void makeARandomMove() {		
 		gatherAllMoves(Chess.BLACK);		
 			
 		if(allPieceMovesB.size() > 0)
@@ -429,22 +494,26 @@ public class Board {
 			if((start.getPiece(thisPM.getX(), thisPM.getY())!=null && start.getPiece(thisPM.getX(), thisPM.getY()).getColor() == Chess.WHITE))
 				textBlack.setText(thisPM.getPiece().getName() + " captured " + start.getPiece(thisPM.getX(), thisPM.getY()).getName());
 			
-			allPieceMovesB.get(random).getPiece().move(allPieceMovesB.get(random).getX(), allPieceMovesB.get(random).getY());
-			
-
-			//System.out.println(allPieceMoves.get(random).getX() + ", " + allPieceMoves.get(random).getY());			
+			allPieceMovesB.get(random).getPiece().move(allPieceMovesB.get(random).getX(), allPieceMovesB.get(random).getY());			
 			}
 			
 		else
-			{
+		{
 			isCheckMate = true;
 			if(((King)(start.getBlackKing())).isCheck())
 				textBlack.setText("*** CHECKMATE! ***");
 			else
 				textBlack.setText("*** STALEMATE! ***");
-			}
+		}
 	}
 	
+	/**
+	 * thinks!
+	 * chooses the best move for black out of all gathered possible moves
+	 * vritera for a good move are the least damage for black AFTER A WHITE RESPONSE
+	 * means, this method gathers also all possible white responses to all possible black-moves
+	 * and measures, after which scenario black has the least damage
+	 */
 	public void think() {
 		
 		gatherAllMoves(Chess.BLACK);
@@ -568,6 +637,11 @@ public class Board {
 		
 	}
 	
+	/**
+	 * measures the difference between the value of black and white pieces on the board
+	 * is used for think-method
+	 * @return
+	 */
 	public int getDiff() {
 		int bv = 0;
 		int wv = 0;

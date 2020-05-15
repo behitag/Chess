@@ -1,7 +1,10 @@
-
-
-public interface Chess {
-
+/**
+ * Enums
+ * @author Behrouz
+ *
+ */
+public interface Chess
+{
 	int WHITE = 0;
 	int BLACK = 1;
 	int MAX_ALLOWEDCELLS = 27;

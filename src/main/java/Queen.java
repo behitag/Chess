@@ -2,6 +2,10 @@ import javafx.scene.image.Image;
 import javafx.scene.paint.Color;
 import javafx.scene.paint.ImagePattern;
 
+/**
+ * simulates the Bishop in Chess
+ * @author Behrouz
+ */
 public class Queen extends Piece {
 	private final static String name = "Queen";
 

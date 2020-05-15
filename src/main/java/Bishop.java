@@ -2,28 +2,37 @@ import javafx.scene.image.Image;
 import javafx.scene.paint.Color;
 import javafx.scene.paint.ImagePattern;
 
-public class Bishop extends Piece{
+/**
+ * simulates the Bishop in Chess
+ * @author Behrouz
+ */
+public class Bishop extends Piece
+{
 	private final static String name = "Bishop";
 	
 	//Super Constructor with color, id
-	public Bishop(int color, int id) {
+	public Bishop(int color, int id) 
+	{
 		super(color, id);	
 		
 		if(color == Chess.WHITE)
-			{
+		{
 			super.setImage(new ImagePattern(new Image(getClass().getResourceAsStream("wb.png"))));
 			super.setImageGray(new ImagePattern(new Image(getClass().getResourceAsStream("wbg.png"))));
-			}
+		}
 		else
-			{
+		{
 			super.setImage(new ImagePattern(new Image(getClass().getResourceAsStream("bb.png"))));
 			super.setImageGray(new ImagePattern(new Image(getClass().getResourceAsStream("bbg.png"))));
-			}
+		}
 	}
 
-	//get all Cells which this Bishop can go to
+	/**
+	 * all cells available cells for the bishop
+	 */
 	//@Override
-	public boolean[][] getAllowedCells() {
+	public boolean[][] getAllowedCells() 
+	{
 		Main board = new Main();
 		
 		//set all fileds equal to false
@@ -74,7 +83,8 @@ public class Bishop extends Piece{
 		return allowedCells;
 	}
 	
-	public void move(int x, int y) {			
+	public void move(int x, int y) 
+	{			
 		int defaultX = super.getX();
 		int defaultY = super.getY();	
 		start.setReservePiece(null);
@@ -82,7 +92,8 @@ public class Bishop extends Piece{
 		//do not call this function twice!
 		//if the move is not allowed
 		if(checkTheMove(x, y) == false)
-		{			
+		{	
+			//moves nothing, only shows a message on the board
 		}		
 		else
 		{	
@@ -108,7 +119,8 @@ public class Bishop extends Piece{
 	}
 	
 	//@Override
-	public boolean checkTheMove(int x, int y) {	
+	public boolean checkTheMove(int x, int y) 
+	{	
 		Main start = new Main();
 		boolean[][] thisArray = getAllowedCells();
 		start.setReservePiece(null);		

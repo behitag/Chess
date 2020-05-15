@@ -2,6 +2,10 @@ import javafx.scene.paint.Color;
 import javafx.scene.paint.ImagePattern;
 import javafx.scene.image.Image;
 
+/**
+ * simulates the Bishop in Chess
+ * @author Behrouz
+ */
 public class Rook extends Piece{
 	private final static String name = "Rook";
 	private static boolean isMoved_w1 = false;

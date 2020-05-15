@@ -2,6 +2,10 @@ import javafx.scene.image.Image;
 import javafx.scene.paint.Color;
 import javafx.scene.paint.ImagePattern;
 
+/**
+ * simulates the King in Chess
+ * @author Behrouz
+ */
 public class King extends Piece{
 	private final static String name = "King";
 	private static boolean isMoved_w = false;

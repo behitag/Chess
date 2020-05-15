@@ -1,5 +1,4 @@
-/*
-***************************************************************************************************
+/**
 * Written with JAVAFX
 * It splits the whole project into  11 classes;
 * 1 super class Piece with 6 subclasses, class Board, class Start, class PieceMove and an interface.
@@ -23,12 +22,16 @@
 * If there are more moves of the same point, it chooses one of them randomly.
 * The moves are stored as objects of the class PieceMove.
 * The program understands Castle-King.
-* designed and written by Behrouz Taghizadeh, April 2018.
-*******************************************************************************************************
-*/
+* designed and written by Behrouz Taghizadeh, April 2018. 
+ */
 
 import javafx.application.Application;
-	
+
+/**
+ * Main Class & sets the position of the king
+ * spearate from Javafx application, to avoid extra path-settings by th user
+ * @author Behrouz
+ */
 public class Main
 {
 	private static King whiteKing = new King(Chess.WHITE, 16);
@@ -43,60 +46,119 @@ public class Main
 		System.out.println("ENDE GELAENDE");		
 	}
 	
+	/**
+	 * returns the piece in a cell
+	 * @param x x-coordinate of the cell
+	 * @param y y-coordinate of the cell
+	 * @return Piece
+	 */
 	public Piece getPiece(int x, int y) {
 		return pieceField[x][y];
 	}	
 	
-	//set All Piecefields equal to null
+	/**
+	 * set All Piecefields equal to null
+	 */
 	public static void initializePieceField() {
 		for(int i=0; i<8; i++)
 		for(int j=0; j<8; j++)
-			pieceField[i][j] = null;
-					
+			pieceField[i][j] = null;					
 	}
 	
+	/**
+	 * game logik : sets a piece in a cell
+	 * @param piece the piece
+	 * @param x x-coordinat of the cell
+	 * @param y y-coordinat of the cell
+	 */
 	public static void setPieceInCell(Piece piece, int x, int y) {
 		piece.setX(x);
 		piece.setY(y);
 		pieceField[x][y] = piece;		
 		//Board.getRectangle(x, 7-y).setFill(piece.getImage());		
 	}
-		
+	
+	/**
+	 * return x-coordinate of the white king
+	 * @return int
+	 */
 	public int getWhiteKingX() {
 		return whiteKing.getX();
 	}
+	
+	/**
+	 * returns y-coordinate of the white king
+	 * @return int
+	 */
 	public int getWhiteKingY() {
 		return whiteKing.getY();
 	}
+	
+	/**
+	 * returns x-coordinate of the black king
+	 * @return int
+	 */
 	public int getBlackKingX() {
 		return blackKing.getX();
 	}
+	
+	/**
+	 * returns y-coordinate of the black king
+	 * @return int
+	 */
 	public int getBlackKingY() {
 		return blackKing.getY();
 	}
+	
+	/**
+	 * sets xy-coordinate of the white king
+	 * @return int
+	 */
 	public void setWhiteKingXY(int x, int y) {		
 		whiteKing.setX(x);
 		whiteKing.setY(y);
 		setPieceInCell(whiteKing, x, y);
 	}
+	
+	/**
+	 * sets xy-coordinate of the black king
+	 * @return int
+	 */
 	public void setBlackKingXY(int x, int y) {
 		blackKing.setX(x);
 		blackKing.setY(y);
 		setPieceInCell(blackKing, x, y);
 	}
 	
+	/**
+	 * returns the white king as piece
+	 * @return Piece
+	 */
 	public Piece getWhiteKing() {
 		return whiteKing;
 	}
 	
+	/**
+	 * returns black king as a piece
+	 * @return Piece
+	 */
 	public Piece getBlackKing() {
 		return blackKing;
 	}
 	
+	/**
+	 * creates a piece in the reserve
+	 * is used in checkTheMove-method, to see if the move is allowed
+	 * @param piece
+	 */
 	public void setReservePiece(Piece piece) {
 		reservePiece = piece;
 	}
 	
+	/**
+	 * gets the piece in the reserve (see above for setRrservePiece method)
+	 * @return
+	 */
 	public Piece getReservePiece() {
 		return reservePiece;
 	}

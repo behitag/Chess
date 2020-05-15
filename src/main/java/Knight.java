@@ -2,6 +2,10 @@ import javafx.scene.image.Image;
 import javafx.scene.paint.Color;
 import javafx.scene.paint.ImagePattern;
 
+/**
+ * simulates the Knight in Chess
+ * @author Behrouz
+ */
 public class Knight extends Piece{
 	private final static String name = "Knight";
 
