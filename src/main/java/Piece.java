@@ -139,11 +139,26 @@ public abstract class Piece {
 	 * if the piece can go there
 	 * if the cell is free
 	 * if the move makes any check
+	 * this method has the most CPU-usage
 	 * @param x x-coordinate of the target cell
 	 * @param y y-coordinte of the target cell
 	 * @return boolean
 	 */
 	public abstract boolean checkTheMove(int x, int y);
+	
+	/**
+	 * does move the cell into the target cell, if checkTheMove allows it (see above)
+	 * changes the images on the board
+	 * changes the values in the piecefield
+	 * @param x x-coordibate of the target cell
+	 * @param y-coordinate of the target cell
+	 */
 	public abstract void move(int x, int y);
+	
+	/**
+	 * returns the relative value of the piece in chess
+	 * is used for comparing the current position of parties and finding the best move
+	 * @return int
+	 */
 	public abstract int getValue();	
 }

@@ -28,7 +28,7 @@ public class Bishop extends Piece
 	}
 
 	/**
-	 * all cells available cells for the bishop
+	 * find all available cells for the bishop
 	 */
 	//@Override
 	public boolean[][] getAllowedCells() 
