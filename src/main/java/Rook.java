@@ -26,7 +26,7 @@ public class Rook extends Piece{
 	}
 
 	//get all cells where this Rook can go to
-	@Override
+	//@Override
 	public boolean[][] getAllowedCells() {
 
 		//create a Board object to see if the cell is occupied
@@ -273,7 +273,7 @@ public class Rook extends Piece{
 		Rook.isMoved_b2 = isMoved_b2;
 	}
 	
-	@Override
+	//@Override
 	public String getName() {
 		return name;
 	}

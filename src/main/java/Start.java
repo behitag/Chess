@@ -4,7 +4,7 @@ import javafx.application.Application;
 public class Start extends Application
 {
 
-	@Override
+	//@Override
 	public void start(Stage primaryStage) throws Exception
 	{
 		Board board = new Board();

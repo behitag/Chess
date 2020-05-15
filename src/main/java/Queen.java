@@ -20,7 +20,7 @@ public class Queen extends Piece {
 			}
 	}
 	
-	@Override
+	//@Override
 	public boolean[][] getAllowedCells() {		
 		Main board = new Main();		
 		
@@ -143,7 +143,7 @@ public class Queen extends Piece {
 		}
 	}
 	
-	@Override
+	//@Override
 	public boolean checkTheMove(int x, int y) {	
 		Main start = new Main();
 		boolean[][] thisArray = getAllowedCells();
@@ -259,7 +259,7 @@ public class Queen extends Piece {
 		return Chess.QUEEN_VALUE;
 	}
 	
-	@Override
+	//@Override
 	public String getName() {
 		return name;
 	}

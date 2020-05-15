@@ -20,7 +20,7 @@ public class Knight extends Piece{
 			}
 	}
 
-	@Override
+	//@Override
 	public boolean[][] getAllowedCells() {
 		Main board = new Main();
 		//set all fileds equal to false
@@ -102,7 +102,7 @@ public class Knight extends Piece{
 		}
 	}
 	
-	@Override
+	//@Override
 	public boolean checkTheMove(int x, int y) {	
 		Main start = new Main();
 		boolean[][] thisArray = getAllowedCells();
@@ -218,7 +218,7 @@ public class Knight extends Piece{
 		return Chess.KNIGHT_VAUE;
 	}
 	
-	@Override
+	//@Override
 	public String getName() {
 		return name;
 	}

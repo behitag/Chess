@@ -23,7 +23,7 @@ public class King extends Piece{
 			}
 	}
 
-	@Override
+	//@Override
 	public boolean[][] getAllowedCells() {
 		Main board = new Main();
 		
@@ -317,7 +317,7 @@ public class King extends Piece{
 		return 0;
 	}
 
-	@Override
+	//@Override
 	public String getName() {
 		return name;
 	}

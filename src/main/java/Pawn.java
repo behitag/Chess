@@ -20,7 +20,7 @@ public class Pawn extends Piece{
 			}
 		}
 
-	@Override
+	//@Override
 	public boolean[][] getAllowedCells() {
 		Main board = new Main();
 
@@ -131,7 +131,7 @@ public class Pawn extends Piece{
 		}
 	}
 	
-	@Override
+	//@Override
 	public boolean checkTheMove(int x, int y) {	
 		Main start = new Main();
 		boolean[][] thisArray = getAllowedCells();
@@ -254,7 +254,7 @@ public class Pawn extends Piece{
 		return Chess.PAWN_VALUE;
 	}
 	
-	@Override
+	//@Override
 	public String getName() {
 		return name;
 	}

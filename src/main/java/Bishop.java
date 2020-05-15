@@ -22,7 +22,7 @@ public class Bishop extends Piece{
 	}
 
 	//get all Cells which this Bishop can go to
-	@Override
+	//@Override
 	public boolean[][] getAllowedCells() {
 		Main board = new Main();
 		
@@ -80,9 +80,9 @@ public class Bishop extends Piece{
 		start.setReservePiece(null);
 		
 		//do not call this function twice!
+		//if the move is not allowed
 		if(checkTheMove(x, y) == false)
 		{			
-			//if the move is not allowed
 		}		
 		else
 		{		
@@ -96,13 +96,16 @@ public class Bishop extends Piece{
 			else
 				Board.getRectangle(x, 7-y).setFill(super.getImageGray());
 			
+			
 			if((defaultX+7-defaultY)%2==0)
 				Board.getRectangle(defaultX, 7-defaultY).setFill(Color.TRANSPARENT);
 			else
-				Board.getRectangle(defaultX, 7-defaultY).setFill(Color.LIGHTGRAY);		}
+				Board.getRectangle(defaultX, 7-defaultY).setFill(Color.LIGHTGRAY);
+					
+		}
 	}
 	
-	@Override
+	//@Override
 	public boolean checkTheMove(int x, int y) {	
 		Main start = new Main();
 		boolean[][] thisArray = getAllowedCells();
@@ -220,7 +223,7 @@ public class Bishop extends Piece{
 		return Chess.BISHOP_VALUE;
 	}
 	
-	@Override
+	//@Override
 	public String getName() {
 		return name;
 	}
