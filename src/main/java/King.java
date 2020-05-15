@@ -157,6 +157,9 @@ public class King extends Piece{
 				start.setBlackKingXY(x, y);
 				rook.setIsMoved_b1(true);
 				}
+			
+			if(getColor() == Chess.BLACK)
+				Board.addBlackBorderRectangles(x, y, defaultX, defaultY);
 		}
 	}
 	

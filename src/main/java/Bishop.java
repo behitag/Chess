@@ -85,7 +85,7 @@ public class Bishop extends Piece{
 		{			
 		}		
 		else
-		{		
+		{	
 			super.setX(x);
 			super.setY(y);
 			Main.setPieceInCell(new Bishop(super.getColor(), super.getId()), x, y);			
@@ -94,14 +94,16 @@ public class Bishop extends Piece{
 			if((x+7-y)%2==0)
 				Board.getRectangle(x, 7-y).setFill(super.getImage());
 			else
-				Board.getRectangle(x, 7-y).setFill(super.getImageGray());
-			
+				Board.getRectangle(x, 7-y).setFill(super.getImageGray());			
 			
 			if((defaultX+7-defaultY)%2==0)
 				Board.getRectangle(defaultX, 7-defaultY).setFill(Color.TRANSPARENT);
 			else
 				Board.getRectangle(defaultX, 7-defaultY).setFill(Color.LIGHTGRAY);
-					
+			
+			if(getColor() == Chess.BLACK)
+				Board.addBlackBorderRectangles(x, y, defaultX, defaultY);
+			
 		}
 	}
 	

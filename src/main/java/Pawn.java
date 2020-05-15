@@ -127,7 +127,10 @@ public class Pawn extends Piece{
 			if((defaultX+7-defaultY)%2==0)
 				Board.getRectangle(defaultX, 7-defaultY).setFill(Color.TRANSPARENT);
 			else
-				Board.getRectangle(defaultX, 7-defaultY).setFill(Color.LIGHTGRAY);			
+				Board.getRectangle(defaultX, 7-defaultY).setFill(Color.LIGHTGRAY);
+			
+			if(getColor() == Chess.BLACK)
+				Board.addBlackBorderRectangles(x, y, defaultX, defaultY);
 		}
 	}
 	

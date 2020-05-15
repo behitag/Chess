@@ -128,6 +128,8 @@ public class Rook extends Piece{
 			else
 				Board.getRectangle(defaultX, 7-defaultY).setFill(Color.LIGHTGRAY);
 			
+			if(getColor() == Chess.BLACK)
+				Board.addBlackBorderRectangles(x, y, defaultX, defaultY);			
 			}	
 	}
 	

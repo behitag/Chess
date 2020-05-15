@@ -22,13 +22,14 @@ public class Board {
 	private static Rectangle[][] rectangle = new Rectangle[8][8];
 	private Pane root0 = new Pane();
 	private Pane root = new Pane();	
-	private GridPane gridRoot = new GridPane();
-	private Rectangle borderRectangle = new Rectangle(0, 0, 98, 98);
+	private static GridPane gridRoot = new GridPane();
+	private static Rectangle borderRectangle = new Rectangle(0, 0, 98, 98);
+	private static Rectangle blackBorderRectangle1 = new Rectangle(0, 0, 98, 98);
+	private static Rectangle blackBorderRectangle2 = new Rectangle(0, 0, 98, 98);
 	private Scene scene = new Scene(root0, 350, 350);
 	private Stage stage = new Stage();
 	private Text textWhite = new Text();
 	private Text textBlack = new Text();
-	private Piece wq;
 	
 	ArrayList<PieceMove> allPieceMovesB = new ArrayList<PieceMove>();
 	ArrayList<PieceMove> allPieceMovesW = new ArrayList<PieceMove>();
@@ -38,7 +39,6 @@ public class Board {
 		for(int i=0; i<8; i++)
 		for(int j=0; j<8; j++) {
 			rectangle[i][j] = new Rectangle(Chess.WIDTH/8, Chess.LENGHT/8);
-			rectangle[i][j].setStroke(Color.BLACK);
 			gridRoot.add(rectangle[i][j], i, j);
 			
 			if((i+j)%2==0)
@@ -49,7 +49,13 @@ public class Board {
 		
 		borderRectangle.setFill(Color.TRANSPARENT);
 		borderRectangle.setStroke(Color.RED);
-		borderRectangle.setStrokeWidth(3);	
+		borderRectangle.setStrokeWidth(3);
+		blackBorderRectangle1.setFill(Color.TRANSPARENT);
+		blackBorderRectangle1.setStroke(Color.RED);
+		blackBorderRectangle1.setStrokeWidth(3);
+		blackBorderRectangle2.setFill(Color.TRANSPARENT);
+		blackBorderRectangle2.setStroke(Color.RED);
+		blackBorderRectangle2.setStrokeWidth(3);
 		
 		Rectangle infoRectangle = new Rectangle(0, 800, 840, 200);		
 		root.getChildren().add(infoRectangle);
@@ -115,6 +121,17 @@ public class Board {
 		root0.getChildren().add(btRandom);		
 		RandomHandler randomHandler = new RandomHandler();
 		btRandom.setOnAction(randomHandler);	
+	}
+	
+	public static void addBlackBorderRectangles(int x, int y, int defaultX, int defaultY)
+	{
+		if(gridRoot.getChildren().contains(blackBorderRectangle1))
+			gridRoot.getChildren().remove(blackBorderRectangle1);
+		gridRoot.add(blackBorderRectangle1, x, 7-y);		
+		
+		if(gridRoot.getChildren().contains(blackBorderRectangle2))
+			gridRoot.getChildren().remove(blackBorderRectangle2);
+		gridRoot.add(blackBorderRectangle2, defaultX, 7-defaultY);
 	}
 	
 	public Scene getScene() {
@@ -196,9 +213,9 @@ public class Board {
 							start.getPiece(clickedPieceX, clickedPieceY).move(x, y);
 							
 							if(((King)(start.getBlackKing())).isCheck())
-								{
+							{
 								textWhite.setText(textWhite.getText() + ": Check!");
-								}
+							}
 															
 							if(level == 1)
 								makeARandomMove();
@@ -275,7 +292,7 @@ public class Board {
 		Piece wn2 = new Knight(Chess.WHITE, 9);
 		Piece wb1 = new Bishop(Chess.WHITE, 9);		
 		Piece wb2 = new Bishop(Chess.WHITE, 9);
-		wq = new Queen(Chess.WHITE, 9);	
+		Piece wq = new Queen(Chess.WHITE, 9);	
 		Piece wp1 = new Pawn(Chess.WHITE, 9);
 		Piece wp2 = new Pawn(Chess.WHITE, 9);
 		Piece wp3 = new Pawn(Chess.WHITE, 9);
@@ -564,5 +581,5 @@ public class Board {
 			wv = wv + Main.pieceField[i][j].getValue();
 		
 		return bv - wv;
-	}	
+	}
 }
