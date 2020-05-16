@@ -1,5 +1,5 @@
 # Chess
-Interactive Chess game with 2 levels of Difficulty
+Interactive Chess game with 2 levels of Difficulty (Maven Project)
 <br>Level 1 : random - does random moves (but allowed!) moves
 <br>Level 2: thinks  - compares all scenarios after 2 moves depth and choose the best one
 <br>coded with Javafx
