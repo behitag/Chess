@@ -640,7 +640,7 @@ public class Board {
 	/**
 	 * measures the difference between the value of black and white pieces on the board
 	 * is used for think-method
-	 * @return
+	 * @return int
 	 */
 	public int getDiff() {
 		int bv = 0;

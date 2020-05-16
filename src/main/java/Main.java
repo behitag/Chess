@@ -28,7 +28,8 @@
 import javafx.application.Application;
 
 /**
- * Main Class & sets the position of the king
+ * Main Class
+ * sets the position of the king
  * spearate from Javafx application, to avoid extra path-settings by th user
  * @author Behrouz
  */
@@ -112,7 +113,8 @@ public class Main
 	
 	/**
 	 * sets xy-coordinate of the white king
-	 * @return int
+	 * @param x x-coordinate of the king
+	 * @param y y-coordinate of the king
 	 */
 	public void setWhiteKingXY(int x, int y) {		
 		whiteKing.setX(x);
@@ -121,8 +123,9 @@ public class Main
 	}
 	
 	/**
-	 * sets xy-coordinate of the black king
-	 * @return int
+	 * sets the position of the black king
+	 * @param x the x-coordinate of the target cell
+	 * @param y the y-coordinate of the target cell
 	 */
 	public void setBlackKingXY(int x, int y) {
 		blackKing.setX(x);
@@ -149,15 +152,16 @@ public class Main
 	/**
 	 * creates a piece in the reserve
 	 * is used in checkTheMove-method, to see if the move is allowed
-	 * @param piece
+	 * @param piece the piece
 	 */
-	public void setReservePiece(Piece piece) {
+	public void setReservePiece(Piece piece)
+	{
 		reservePiece = piece;
 	}
 	
 	/**
 	 * gets the piece in the reserve (see above for setRrservePiece method)
-	 * @return
+	 * @return Piece
 	 */
 	public Piece getReservePiece() {
 		return reservePiece;

@@ -111,7 +111,7 @@ public abstract class Piece {
 	
 	/**
 	 * sets the image of the piece with gray back-ground. for showing the piece on the black cells
-	 * @param imageGray
+	 * @param imageGray the image to be set
 	 */
 	public void setImageGray(ImagePattern imageGray)
 	{
@@ -135,11 +135,11 @@ public abstract class Piece {
 	public abstract boolean[][] getAllowedCells(); 
 	
 	/**
+	 * this method is the brain of the program; has the most CPU-usage
 	 * checks if the requested move is allowed, that means
 	 * if the piece can go there
 	 * if the cell is free
 	 * if the move makes any check
-	 * this method has the most CPU-usage
 	 * @param x x-coordinate of the target cell
 	 * @param y y-coordinte of the target cell
 	 * @return boolean
@@ -148,6 +148,7 @@ public abstract class Piece {
 	
 	/**
 	 * does move the cell into the target cell, if checkTheMove allows it (see above)
+	 * if not, does not change anything, only shows a message for the user in the infobox
 	 * changes the images on the board
 	 * changes the values in the piecefield
 	 * @param x x-coordibate of the target cell

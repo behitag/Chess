@@ -9,7 +9,8 @@ import javafx.scene.paint.ImagePattern;
 public class Knight extends Piece{
 	private final static String name = "Knight";
 
-	public Knight(int color, int id) {
+	public Knight(int color, int id) 
+	{
 		super(color, id);
 		
 		if(color == Chess.WHITE)
@@ -25,7 +26,8 @@ public class Knight extends Piece{
 	}
 
 	//@Override
-	public boolean[][] getAllowedCells() {
+	public boolean[][] getAllowedCells() 
+	{
 		Main board = new Main();
 		//set all fileds equal to false
 		for(int i=0; i<8; i++)

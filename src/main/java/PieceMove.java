@@ -74,9 +74,10 @@ public class PieceMove {
 	
 	/**
 	 * sets the x-coordinate of the initial cell of the move
-	 * @param fromX
+	 * @param fromX the x-coordinate to be set
 	 */
-	public void setFromX(int fromX) {
+	public void setFromX(int fromX) 
+	{
 		this.fromX = fromX;
 	}
 	
@@ -90,7 +91,7 @@ public class PieceMove {
 	
 	/**
 	 * sets the initial y-coordinate of the move
-	 * @param fromY
+	 * @param fromY the y-coordinate
 	 */
 	public void setFromY(int fromY) {
 		this.fromY = fromY;
