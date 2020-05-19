@@ -5,7 +5,7 @@ Interactive Chess game with 2 levels of Difficulty (Maven Project)
 <br>coded with Javafx
 <br>designed and written by Behrouz Taghizadeh, April 2018
 <br>to run the executable jar, build the project mit maven and then run "java -jar target\Chess-0.0.1-SNAPSHOT-jar-with-dependencies.jar"
-<br>-------------------------------------------
+<br>-------------------------------------------------------------------------------------------------------------------
 <br><b>How it works:</b>        	
 	<br> -> It splits the whole project into  11 classes;
 	<br> -> 1 super class Piece with 6 subclasses + class Board, class Start, class PieceMove and an interface.
